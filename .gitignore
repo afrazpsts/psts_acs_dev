@@ -1,0 +1,51 @@
+
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Database files
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Uploaded/generated files
+uploads/
+uploaded_faces/
+samplefile/
+building_import/
+
+# Media files
+*.jpg
+*.jpeg
+*.png
+*.gif
+
+# Generated files
+*.pdf
+*.spec
+
+# Keys / certificates
+keys/
+*.pem
+*.key
+
+# Build files
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
