@@ -64,6 +64,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Ensure static directories exist before mounting
+os.makedirs(os.path.join("menu", "images"), exist_ok=True)
+os.makedirs("uploaded_faces", exist_ok=True)
+os.makedirs("uploads", exist_ok=True)
+os.makedirs("banner_images", exist_ok=True)
+
 app.mount("/menu/images", StaticFiles(directory=os.path.join("menu", "images")), name="menu_images")
 app.mount("/uploaded_faces", StaticFiles(directory="uploaded_faces"), name="uploaded_faces")
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
