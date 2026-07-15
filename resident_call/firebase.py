@@ -4,13 +4,15 @@ import os
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-cred_path = os.path.join(BASE_DIR, "..", "notificationss", "accountkey.json")
+cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", os.path.join(BASE_DIR, "..", "notificationss", "accountkey.json"))
 cred_path = os.path.abspath(cred_path)  
 
-
 if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_path)
-    firebase_admin.initialize_app(cred)
+    try:
+        cred = credentials.Certificate(cred_path)
+        firebase_admin.initialize_app(cred)
+    except Exception as e:
+        print(f"Warning: Could not initialize Firebase in resident_call. Error: {e}")
 
 def sending_notifications(tokens: list, title: str, body: str, data: dict = None):
     success_count = 0
