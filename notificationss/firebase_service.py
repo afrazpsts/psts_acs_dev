@@ -10,8 +10,12 @@ cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", os.path.join(BASE_DIR, "
 
 # Initialize Firebase only once
 if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_path)
-    firebase_admin.initialize_app(cred)
+    try:
+        cred = credentials.Certificate(cred_path)
+        firebase_admin.initialize_app(cred)
+        print("Firebase initialized successfully.")
+    except Exception as e:
+        print(f"Warning: Could not initialize Firebase. Push notifications will fail. Error: {e}")
 
 def send_push_notification(fcm_token: str, title: str, body: str, data: dict = None):
     """Original function - sends without preference check"""
