@@ -84,3 +84,5 @@ uvicorn==0.35.0
 xmltodict==0.14.2
 yarl==1.22.0
 python-dotenv==1.0.1
+Jinja2==3.1.4
+

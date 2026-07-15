@@ -5,7 +5,8 @@ from sqlalchemy import text
 from typing import Optional
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-cred_path = os.path.join(BASE_DIR, "accountkey.json")
+# Check for environment variable first, then fallback to local file
+cred_path = os.environ.get("FIREBASE_CREDENTIALS_PATH", os.path.join(BASE_DIR, "accountkey.json"))
 
 # Initialize Firebase only once
 if not firebase_admin._apps:

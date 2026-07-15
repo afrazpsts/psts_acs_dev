@@ -37,10 +37,10 @@ building_import/
 *.pdf
 *.spec
 
-# Keys / certificates
-keys/
-*.pem
-*.key
+
+
+notificationss/accountkey.json
+**/accountkey.json
 
 # Build files
 build/
