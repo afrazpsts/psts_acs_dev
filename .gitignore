@@ -24,7 +24,6 @@ venv/
 # Uploaded/generated files
 uploads/
 uploaded_faces/
-samplefile/
 building_import/
 
 # Media files
